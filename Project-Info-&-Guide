@@ -155,3 +155,5 @@ html5lib And bs4 Library to parse  the content :
 pass it properly to the urls.py  
 So Django will understand what is to be rendered .
 -----------------------------------------------------------------------------------------------------------------------------
+
+Created...
