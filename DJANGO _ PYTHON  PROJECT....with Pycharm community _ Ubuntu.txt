@@ -1,0 +1,157 @@
+﻿WEB-APP  (AUTO - NEWS - AGREGATOR )
+DJANGO / PYTHON PROJECT....with Pycharm community in Ubuntu
+
+
+
+
+i.e create a NEW PROJECT <=======================================>
+Create a PyCharm project with a virtual environment
+
+
+Note that in the free edition i.e Pycharm community PyPi(package index)gui does not appear So, manually installation by cli ... i. from terminal
+==============================================================
+
+
+Run in Pycharm Terminal...
+
+
+pip install "Django"
+pip install "Django"==3.2.4
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------
+
+
+Start a new Django project:
+
+
+Django differentiates between Projects and Applications. Typically you create one Project for an entire site. This site could potentially contain multiple Applications. This means that we should first create a new Django project, before we can create a Django application. In most online tutorials and Django related literature, the Django project is named mysite. We’ll go along with this, however you can of course change this name to whatever suits your needs best.
+
+
+Type the following command in the terminal to create our new Django project:
+
+
+django-admin startproject AutoNewsAggregator
+
+
+
+
+vebo@vebo:~/Pycharm/djangoproject/AutoNewsAggregator$ tree
+locales-launch: Data of en_IN locale not found, generating, please wait...
+.
+|-- AutoNewsAggregator
+| |-- __init__.py
+| |-- asgi.py
+| |-- settings.py
+| |-- urls.py
+| `-- wsgi.py
+`-- manage.py
+
+
+if you open up the settings.py file, you’ll see that by default Django already installed some applications for us. This is partially what they mean when they say Django is a framework with batteries included. To finalize the Django project creation, we need to create and apply the so-called database migrations. This creates the database layout that is needed by these pre-installed applications. Run the following command to perform these database migrations from the AutoNewsAggregator directory:
+
+
+
+
+python manage.py migrate
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+
+vebo@vebo:~/Pycharm/djangoproject/AutoNewsAggregator$ python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, sessions
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  .......
+
+
+------------------------------------------------------------------------------------------------------------------
+To verify the successful setup of our new Django project, we can run the included development web server. To start the development server, type the command:
+
+
+python manage.py runserver
+
+
+------------------------------------------------------------------------------------------------------------------
+
+
+vebo@vebo:~/Pycharm/djangoproject/AutoNewsAggregator$ python manage.py runserver
+Watching for file changes with StatReloader
+Performing system checks...
+
+
+System check identified no issues (0 silenced).
+April 07, 2021 - 19:11:53
+Django version 3.1.1, using settings 'AutoNewsAggregator.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+
+------------------------------------------------------------------------------------------------------------------
+We can build a news aggregator web app by scrapping the news websites and serving those scrapped news via Django on the web or in any app.
+
+
+Plan: We'll build our news aggregator  in 3 parts. These are following:
+1. We'll research on html source code of news sites and build a website scraper  for each
+2. Then, We'll set up our django server
+3. Finally, we'll integrate everything altogetherSo, let's start with the first step.Before we start building scrappers, let's get the required packages first. You can install them from the command prompt with these commands.
+Installed these  Libraries:
+pip install bs4               //(BeautifulSoup   - Version 4)
+pip  install requests     //(For Handling Multiple Http Requests )
+pip install html5lib       //(For Parsing Html contents From Popular Websites )
+---------------------------------------------------------------------------------------------------------------------
+Create a new Django Application
+After the creation of our new AutoNewsAggregator Django project, we can create our own Django application. Make sure you are in the MyeeLibrary directory. Next, run the following command to create a new Django application inside our mysite Django project:
+
+
+python manage.py startapp news
+
+
+
+
+The new application is now created in the news subdirectory. Feel free to look around and see what files and directories the Django project manager created for you:
+
+
+python manage.py startapp news
+The new application is now created in the news subdirectory. Feel free to look around and see what files and directories the Django project manager created for you:
+
+
+vebo@vebo:~/Pycharm/djangoproject/AutoNewsAggregator$ python manage.py startapp news
+vebo@vebo:~/Pycharm/djangoproject/AutoNewsAggregator$ cd news
+vebo@vebo:~/Pycharm/djangoproject/AutoNewsAggregator/news$ tree
+.
+|-- __init__.py
+|-- admin.py
+|-- apps.py
+|-- migrations
+| `-- __init__.py
+|-- models.py
+|-- tests.py
+`-- views.py
+
+
+1 directory, 7 files
+-------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+Create a new(directory) template in news app 
+In template create new(directory) news   Now , in current  news directory
+Add your index.html file.
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------
+ Now , in view.py
+Process Your Web Scraping Logic  and  i.e create a requests From request Library & use
+html5lib And bs4 Library to parse  the content :
+pass it properly to the urls.py  
+So Django will understand what is to be rendered .
+-----------------------------------------------------------------------------------------------------------------------------
